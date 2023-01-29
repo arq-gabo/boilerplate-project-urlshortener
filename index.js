@@ -75,9 +75,9 @@ app.post("/api/shorturl", urlencodedParser, async (req, res, next) => {
 
   // Conditional for check if have error in request
 
-  const httpsPattern = /^https.+$/gi;
+  let protocolValid = /^https?:\/\/.+/gi;
 
-  if ((await lookupPromise()) === "" && httpsPattern.test(req.body.url)) {
+  if ((await lookupPromise()) === "" && protocolValid.test(req.body.url)) {
     let data = await Urlsdata.findOne({ original_url: req.body.url });
 
     // Find the max value of the short url
@@ -109,7 +109,7 @@ app.post("/api/shorturl", urlencodedParser, async (req, res, next) => {
     res.json({ error: "Invalid Hostname" });
   } else if (
     (await lookupPromise()) === "ERR_INVALID_URL" ||
-    !httpsPattern.test(req.body.url)
+    !protocolValid.test(req.body.url)
   ) {
     res.json({ error: "Invalid URL" });
   }
