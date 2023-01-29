@@ -18,15 +18,59 @@
         <form action="api/shorturl" method="POST">
           <fieldset>
             <legend>URL Shortener</legend>
+            <p>Example</p>
+            <code
+              >https://www.google.com - { original_url: https://www.google.com ,
+              short_url: 1 } - Valid URL</code
+            >
+            <br />
+            <code
+              >http://www.facebook.com - { original_url: http://www.facebook.com
+              , short_url: 2 } - Valid URL</code
+            >
+            <br />
+            <code>www.google.com - {"error": "Invalid URL"}</code>
+            <br />
+            <code
+              >https://www.thisWebSiteNotExist.com - {"error": "Invalid
+              Hostname"}</code
+            >
+            <br />
+            <br />
             <label for="url_input">URL:</label>
-            <input id="url_input" type="text" name="url" placeholder="https://www.freecodecamp.org/" />
+            <input
+              id="url_input"
+              type="text"
+              name="url"
+              placeholder="https://www.youWebSiteHere.com/"
+            />
             <input type="submit" value="POST URL" />
           </fieldset>
         </form>
+        <p>Example Req GET</p>
+
+        <a href="api/shorturl/1"> [base url]/api/shorturl/1</a
+        ><code> - You will be redirected to the website</code>
+
+        <br />
+
+        <a href="api/shorturl/abcdfghijklm">
+          [base url]/api/shorturl/abcdfghijklm</a
+        ><code> - { "error": "Wrong format" }</code>
+
+        <br />
+        <a href="api/shorturl/100000000000">
+          [base url]/api/shorturl/100000000000</a
+        ><code> - { "error": "No short URL found for the given input" }</code>
       </section>
     </main>
     <footer>
-      <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p>
+      <p>
+        By Jose Gabriel Guerra for freeCodeCamp
+        <a href="https://github.com/arq-gabo/boilerplate-project-urlshortener">
+          - Show Code</a
+        >
+      </p>
     </footer>
   </body>
 </html>
