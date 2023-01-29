@@ -105,15 +105,14 @@ app.post("/api/shorturl", urlencodedParser, async (req, res, next) => {
     } else {
       res.json({ original_url: data.original_url, short_url: data.short_url });
     }
-  } else if ((await lookupPromise()) === "ENOTFOUND") {
-    res.json({ error: "Invalid Hostname" });
   } else if (
     (await lookupPromise()) === "ERR_INVALID_URL" ||
     !protocolValid.test(req.body.url)
   ) {
     res.json({ error: "Invalid URL" });
+  } else if ((await lookupPromise()) === "ENOTFOUND") {
+    res.json({ error: "Invalid Hostname" });
   }
-
   next();
 });
 
