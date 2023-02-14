@@ -31,7 +31,7 @@ https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-develo
 
 - To add persistence, mongodb was used as the NoSql database and mongoose as the database manager
 
-- Ando used body-parser for get data input text type
+- And used body-parser for get data input text type
 
 ### Used
 
@@ -39,7 +39,7 @@ https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-develo
 
 `{ "original_url": "https://www.google.com", "short_url": 1 }`
 
--Wen yor type not valid URL
+-When your type not valid URL
 
 `{ "error": "Invalid URL" }`
 
